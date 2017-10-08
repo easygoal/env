@@ -95,9 +95,9 @@ iab itime <c-r>=strftime("%H:%M")<CR>
 iab igmail easygoa@gmail.com
 iab iname Guoyou Jiang
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - Vundle.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 if has("win32")
 	set rtp+=$VIM/vimfiles/bundle/Vundle.vim
 	call vundle#begin('$VIM/vimfiles/bundle/')
@@ -138,7 +138,6 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'Pychimp/vim-sol'
 Plugin 'morhetz/gruvbox'
 
-
 " Ftplugin
 "Plugin 'python_fold'
 
@@ -150,6 +149,7 @@ Plugin 'morhetz/gruvbox'
 "Plugin 'gg/python.vim'
 
 " Plugin
+Plugin 'mileszs/ack.vim'
 "Plugin 'lifepillar/vim-mucomplete'  "自动补齐
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'Shougo/neocomplcache'
@@ -201,9 +201,10 @@ Plugin 'plasticboy/vim-markdown'
 "Plugin 'ZenCoding.vim'
 "Plugin 'css_color.vim'
 "Plugin 'hallettj/jslint.vim'
+
 call vundle#end()
 filetype plugin indent on
-"------------------------END Vundle.vim--------------------------------------
+"----------------------END Vundle.vim--------------------------------------
 
 "Mapping for copy and paste
 "vnoremap y y`]
@@ -329,17 +330,17 @@ imap <C-F10> <C-o>:set spell!<CR>
 " 光标移动 
 " ==============================================
 nnoremap <Down> gj
-nnoremap <Up> gk
+nnoremap <Up>   gk
 vnoremap <Down> gj
-vnoremap <Up> gk
+vnoremap <Up>   gk
 inoremap <Down> <C-o>gj
-inoremap <Up> <C-o>gk
+inoremap <Up>   <C-o>gk
 
-nnoremap <End> g$
+nnoremap <End>  g$
 nnoremap <Home> g0
-vnoremap <End> g$
+vnoremap <End>  g$
 vnoremap <Home> g0
-inoremap <End> <C-o>g$
+inoremap <End>  <C-o>g$
 inoremap <Home> <C-o>g0
 
 " jump only one 'line' when wrap set on
@@ -603,9 +604,9 @@ endfunction
 
 
 
-"=============================================================================
+"===========================================================================
 " Functions
-"=============================================================================
+"===========================================================================
 function! TextWork()
 	set nocin
 	set nosm
@@ -660,15 +661,14 @@ endfun
 
 " ********************Plugin Configuration**********************
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - vim-easymotion.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let g:EasyMotion_leader_key = '<Leader>'
-"------------------------END vim-easymotion.vim--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - vim-airline.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 if has("win32")
 	"	set guifont=Liberation_Mono_for_Powerline:h10 
 	"	set guifont=DejaVu_Sans_Mono_for_Powerline:h11 
@@ -681,11 +681,10 @@ let g:airline_powerline_fonts = 1
 "let g:airline#extensionstabline#left_sep = ' '
 "let g:airline#extensionstabline#left_alt_sep = '|'
 "let g:airline_theme = 'powerlineish'
-"------------------------END vim-airline.vim--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - powerline.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 "依赖python，被抛弃，改用vim-airline
 "let g:Powerline_symbols = 'fancy'
 "set fillchars+=stl:\ ,stlnc:\
@@ -697,11 +696,10 @@ let g:airline_powerline_fonts = 1
 "else
 "	let g:Powerline_cache_file='~/.vim/bundle/vim-powerline/Powerline.cache'
 "endif
-"------------------------END powerline.vim--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - ctrlp.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let g:ctrlp_map = ',p'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -721,13 +719,11 @@ let g:ctrlp_max_height=15
 let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
-"------------------------END ctrlp.vim--------------------------------------
 
-"----------------------------------------------------------------------------- 
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - matchit.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let b:match_ignorecase=1
 let b:match_words = 
 			\ '\<begin\>:\<end\>,' .
@@ -749,11 +745,10 @@ let b:match_words =
 			\ '\<case\>\|\<casex\>\|\<casez\>:\<endcase\>,' .
 			\ '\<fork\>:\<join\>\|\<join_any\>\|\<join_none\>,' .
 			\ '`ifdef\>:`else\>:`endif\>,'
-"------------------------END matchit.vim--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - taglist.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 "let Tlist_Ctags_Cmd = "ctags.exe"
 ":map <silent> <F8> :Tlist<cr>
 "imap <F8> <ESC>:Tlist<CR>i
@@ -766,20 +761,18 @@ let Tlist_Exit_OnlyWindow = 1             "if you are the last, kill yourself
 "let Tlist_File_Fold_Auto_Close = 1         "当前不被编辑的文件的方法列表自动折叠起来 
 "let Tlist_Enable_Fold_Column = 0           "do not show folding tree  
 let Tlist_Show_One_File = 1                "只显示一个文件中的tag
-"------------------------END taglist.vim--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - winmanger.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let g:winManagerWindowLayout = "TagList|FileExplorer"		" 设置界面分割
 let g:winManagerWidth = 30									"设置winmanager的宽度，默认为25
 nmap <silent> <F8> :WMToggle<cr>							"定义打开关闭winmanager快捷键为F8
 let g:AutoOpenWinManager = 1								"在进入vim时自动打开winmanager
-"------------------------END winmanager.vim--------------------------------------
 
-"-----------------------------------------------------------------------------  
+"---------------------------------------------------------------------------  
 " plugin - BufExplorer.vim 
-"-----------------------------------------------------------------------------  
+"---------------------------------------------------------------------------  
 ":nmap <F4> :BufExplorer<CR> 
 "let g:bufExplorerSplitBelow=1        " Split new window below current.
 let g:bufExplorerDefaultHelp=0       " Do not show default help.
@@ -790,32 +783,29 @@ let g:bufExplorerSplitVertical=1     " Split vertically.
 "let g:bufExplorerSplitVertSize = 30  " Split width
 let g:bufExplorerSplitHorzSize= 5  " Split width
 let g:bufExplorerUseCurrentWindow=0  " Open in new window.
-"------------------------END BufExplorer--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin - NERD_tree.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 nmap <C-F8> :NERDTreeToggle<cr> 
 imap <C-F8> <Esc>:NERDTreeToggle<cr> 
-"------------------------END NERD_tree--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -BASH_SUPPORT.vim  
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let g:BASH_AuthorName = 'Guoyou Jiang'
 let g:BASH_AuthorRef = 'guoyou'
 let g:BASH_Email = 'easygoal@gmail.com'
 let g:BASH_Company = ''
-"------------------------END BASH_SUPPORT--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -marksbrowser.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 nmap ,mk :MarksBrowser<cr>
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -TVO.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 "let g:otl_install_menu = 1 "install TVO menu
 "let g:otl_instll_toolbar = 1
 "let g:no_otl_maps = 0 "use TVO maps
@@ -831,14 +821,13 @@ nmap ,mk :MarksBrowser<cr>
 "map <M-F12> :!otl2html.py -D -S c:/vim/vim71/nnnnnn.css % > %.html<CR>
 "map <C-F11> :!otlParser.rb -f HTML % > %.html<CR>
 "map <M-F11> :!otlParser.rb -f HTMLLit % > %.html<CR>
-"------------------------END TVO--------------------------------------
 
 "autocmd BufEnter * call DoWordComplete()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -showmarks setting
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let showmarks_enable = 1
 " Show which marks
 let showmarks_include = "'`abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -850,19 +839,23 @@ let showmarks_hlline_upper = 1
 " For showmarks plugin
 hi ShowMarksHLl ctermbg=Yellow   ctermfg=Black  guibg=#FFDB72    guifg=Black
 hi ShowMarksHLu ctermbg=Magenta  ctermfg=Black  guibg=#FFB3FF    guifg=Black
-"------------------------END showmarks --------------------------------------
 
-"----------------------------------------------------------------------------- 
-" plugin -MUComplete.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
+" plugin - ack.vim
+"--------------------------------------------------------------------------- 
+let g:ackprg = 'ag --vimgrep'
+
+"--------------------------------------------------------------------------- 
+" plugin - MUComplete.vim
+"--------------------------------------------------------------------------- 
 set  showmode shortmess-=c
 setl completeopt-=preview
 setl completeopt+=longest,menu,menuone
 let g:mucomplete#enable_auto_at_startup = 1
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -Vim2Ansi.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 function! GetRangeAsString(line1, line2)
 	let l = getline(a:line1, a:line2)
 	let s = ''
@@ -887,18 +880,16 @@ function! BBSColor(line1, line2)
 	let @* = s
 endfunction
 command! -range=% BBSColor :call BBSColor(<line1>,<line2>)
-"------------------------END Vim2Ansi--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -jianfan-v.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 "nmap <leader>g2b <ESC>:cal G2B()<CR>
 "nmap <leader>b2g <ESC>:cal B2G()<CR> 
-"------------------------END jianfan-v--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -SuperTab.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " use neocomplcache instead of it
 "if version>700
 "	set completeopt+=longest
@@ -906,11 +897,10 @@ command! -range=% BBSColor :call BBSColor(<line1>,<line2>)
 "let g:SuperTabRetainCompletionType=2
 "let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 "let g:SuperTabDefaultCompletionType="context"
-"------------------------END SuperTab --------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -neocomplcache.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 "禁用AutoComplPop
 let g:acp_enableAtStartup = 0
 "打开VIM启动neocomplcache
@@ -959,11 +949,10 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"------------------------END neocomplcache--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -neoSnippet.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -975,25 +964,22 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?   "\<Plug>(neosnippet_exp
 if has('conceal')
 	set conceallevel=2 concealcursor=i
 endif
-"------------------------END neocomplcache--------------------------------------
 
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -TxtBrowser.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 let tlist_txt_settings = 'txt;c:content;f:figures;t:tables'
 au BufRead,BufNewFile *.txt setlocal ft=txt
-"------------------------END TxtBrowser--------------------------------------
 
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 " plugin -miniBufExpl.vim
-"----------------------------------------------------------------------------- 
+"--------------------------------------------------------------------------- 
 "let g:miniBufExplMapWindowNavVim = 1		" 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
 "let g:miniBufExplMapWindowNavArrows = 1		" 按下Ctrl+箭头，可以切换到当前窗口的上下左右窗口
 "let g:miniBufExplMapCTabSwitchBufs = 1		" 启用以下两个功能：Ctrl+tab移到下一个buffer并在当前窗口打开；Ctrl+Shift+tab移到上一个buffer并在当前窗口打开；ubuntu好像不支持
 "let g:miniBufExplMapCTabSwitchWindows = 1	" 启用以下两个功能：Ctrl+tab移到下一个窗口；Ctrl+Shift+tab移到上一个窗口；ubuntu好像不支持
 "let g:miniBufExplModSelTarget = 1    " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
-"------------------------END miniBufExpl--------------------------------------
 
 " Added by VimOutliner installer
 " syntax on
@@ -1050,8 +1036,8 @@ endfunction
 "  ==============================================
 "  插入日期 
 "  =============================================
-map <F7> a<C-R>=strftime("%c")<CR><Esc>
-imap <F7> <C-R>=strftime("%c")<CR> 
+map  <F7> a<C-R>=strftime("%c")<CR><Esc>
+imap <F7>  <C-R>=strftime("%c")<CR> 
 "from edyfox.codecarver.org/html/_vimrc.html
 function TimeStamp()
 	let curposn= SaveWinPosn()
