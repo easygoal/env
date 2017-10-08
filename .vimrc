@@ -724,11 +724,6 @@ let g:ctrlp_follow_symlinks=1
 "------------------------END ctrlp.vim--------------------------------------
 
 "----------------------------------------------------------------------------- 
-" plugin - pathogen.vim  
-"----------------------------------------------------------------------------- 
-"call pathogen#infect()
-"call pathogen#runtime_append_all_bundles()
-"------------------------END pathogen.vim--------------------------------------
 
 "----------------------------------------------------------------------------- 
 " plugin - matchit.vim  
@@ -860,7 +855,7 @@ hi ShowMarksHLu ctermbg=Magenta  ctermfg=Black  guibg=#FFB3FF    guifg=Black
 "----------------------------------------------------------------------------- 
 " plugin -MUComplete.vim
 "----------------------------------------------------------------------------- 
-set showmode shortmess-=c
+set  showmode shortmess-=c
 setl completeopt-=preview
 setl completeopt+=longest,menu,menuone
 let g:mucomplete#enable_auto_at_startup = 1
