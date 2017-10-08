@@ -807,10 +807,10 @@ imap <C-F8> <Esc>:NERDTreeToggle<cr>
 "----------------------------------------------------------------------------- 
 " plugin -BASH_SUPPORT.vim  
 "----------------------------------------------------------------------------- 
-let g:BASH_AuthorName = 'Harris Zhu'
-let g:BASH_AuthorRef = 'harris'
-let g:BASH_Email = 'zhuzhzh@gmail.com'
-let g:BASH_Company = 'Cadence'
+let g:BASH_AuthorName = 'Guoyou Jiang'
+let g:BASH_AuthorRef = 'guoyou'
+let g:BASH_Email = 'easygoal@gmail.com'
+let g:BASH_Company = ''
 "------------------------END BASH_SUPPORT--------------------------------------
 
 "----------------------------------------------------------------------------- 
@@ -1021,10 +1021,10 @@ map <F1> <Esc>:call !Mytitle()<CR><Esc>:$<Esc>o
 function! MySVTitle()
 	call append(0,  "//")
 	"  call append(1,  "// Created by         :".b:vlog_company)
-	call append(1,  "// Created by         : Harris Zhu")
+	call append(1,  "// Created by         : Guoyou Jiang")
 	call append(2,  "// Filename           : ".expand("%"))
-	call append(3,  "// Author             : Harris Zhu")  
-	".$USER."Harris")
+	call append(3,  "// Author             : Guoyou Jiang")  
+	".$USER."Guoyou")
 	call append(4,  "// Created On         : ".strftime("%Y-%m-%d %H:%M"))
 	call append(5,  "// Last Modified      : ")
 	call append(6,  "// Update Count       : ".strftime("%Y-%m-%d %H:%M"))
