@@ -683,21 +683,6 @@ let g:airline_powerline_fonts = 1
 "let g:airline_theme = 'powerlineish'
 
 "--------------------------------------------------------------------------- 
-" plugin - powerline.vim  
-"--------------------------------------------------------------------------- 
-"依赖python，被抛弃，改用vim-airline
-"let g:Powerline_symbols = 'fancy'
-"set fillchars+=stl:\ ,stlnc:\
-"set t_Co=256
-"let Powerline_symbols='compatible'
-"let g:Powerline_cache_enabled=1
-"if has("win32")
-"	let g:Powerline_cache_file='d:\Vim\vimfiles\bundle\vim-powerline\Powerline.cache'
-"else
-"	let g:Powerline_cache_file='~/.vim/bundle/vim-powerline/Powerline.cache'
-"endif
-
-"--------------------------------------------------------------------------- 
 " plugin - ctrlp.vim  
 "--------------------------------------------------------------------------- 
 let g:ctrlp_map = ',p'
