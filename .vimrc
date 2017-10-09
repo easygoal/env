@@ -56,10 +56,10 @@ set laststatus=2	"总显示状态行
 " set showcmd	"显示部分命令
 " set more	"使用页调度程序来显示长列表
 "set vertical and horizontal line cursor
-"set cursorline
+set cursorline
 "set cursorcolumn
-highlight CursorLine   guibg=darkgrey guifg=grey ctermbg=lightred
-highlight CursorColumn guibg=darkgrey guifg=grey ctermbg=lightred
+highlight CursorLine   guibg=darkgrey guifg=lightgrey ctermbg=lightred
+highlight CursorColumn guibg=darkgrey guifg=lightgrey ctermbg=lightred
 
 " 标签上只显示文件名，不显示路径
 function! ShortTabLabel ()
@@ -678,8 +678,8 @@ else
 endif
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
-"let g:airline#extensionstabline#left_sep = ' '
-"let g:airline#extensionstabline#left_alt_sep = '|'
+let g:airline#extensionstabline#left_sep = ' '
+let g:airline#extensionstabline#left_alt_sep = '|'
 "let g:airline_theme = 'powerlineish'
 
 "--------------------------------------------------------------------------- 
@@ -779,9 +779,9 @@ imap <C-F8> <Esc>:NERDTreeToggle<cr>
 " plugin -BASH_SUPPORT.vim  
 "--------------------------------------------------------------------------- 
 let g:BASH_AuthorName = 'Guoyou Jiang'
-let g:BASH_AuthorRef = 'guoyou'
-let g:BASH_Email = 'easygoal@gmail.com'
-let g:BASH_Company = ''
+let g:BASH_AuthorRef  = 'guoyou'
+let g:BASH_Email      = ''
+let g:BASH_Company    = ''
 
 "--------------------------------------------------------------------------- 
 " plugin -marksbrowser.vim
@@ -917,31 +917,31 @@ let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 "endfunction
 
 " <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-h>  neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS>   neocomplcache#smart_close_popup()."\<C-h>"
 "inoremap <expr><C-y>  neocomplcache#close_popup()
 "inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "使用tab在候选词之间切换
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 "使用Ctrl+l逐字补全
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
+inoremap <expr><C-l>  neocomplcache#complete_common_string()
 "撤销补全
-inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-g>  neocomplcache#undo_completion()
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"当前文件是JS文件使用javascriptcomplete#CompleteJS来进行语法补全
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType markdown   setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 
 "--------------------------------------------------------------------------- 
 " plugin -neoSnippet.vim
 "--------------------------------------------------------------------------- 
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k>  <Plug>(neosnippet_expand_or_jump)
+smap <C-k>  <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>  <Plug>(neosnippet_expand_target)
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?  "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -998,7 +998,7 @@ function! MySVTitle()
 	let save_tags=getpos(".")
 	call append(8,  "// Description        : ")
 	call append(9,  "// Conclusion         : ")
-	call append(10,  "//                      ")
+	call append(10, "//                      ")
 	call append(10, "//=======================================================================")
 	"call append(11,  "module ".expand("%"))
 	call setpos('.', [0, 8, 25,0])
@@ -1055,12 +1055,12 @@ command -nargs=0 NoAutoTimeStamp call NoAutoTimeStamp()
 " debug perl script
 "map ;d :w<CR>:!perl -d "%:p"<CR>
 
-autocmd BufNewFile,BufRead *.cdf	setfiletype c
-autocmd BufNewFile,BufRead *.swbc	setfiletype sh
-autocmd BufNewFile,BufRead *.txt setf txt
-autocmd BufNewFile,BufRead *.zxt setf zxt
-autocmd BufNewFile,BufRead *.zlg setf ztxlog
-autocmd BufNewFile,BufRead *.sv setf systemverilog
+autocmd BufNewFile,BufRead *.cdf   setfiletype c
+autocmd BufNewFile,BufRead *.swbc  setfiletype sh
+autocmd BufNewFile,BufRead *.txt   setf txt
+autocmd BufNewFile,BufRead *.zxt   setf zxt
+autocmd BufNewFile,BufRead *.zlg   setf ztxlog
+autocmd BufNewFile,BufRead *.sv    setf systemverilog
 
 function VsbFunction (arg1)
 	execute 'vert sb' a:arg1
