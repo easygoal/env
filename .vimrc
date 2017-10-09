@@ -44,9 +44,9 @@ set nu
 set undofile "持久性撤销
 set undolevels=500 "可以撤销的最大改变次数
 if has('win32') || has('win64')
-	set undodir=d:\Vim\bakeup
+	set undodir=d:\Vim\backup
 else
-	set undodir=~/.vim/bakeup
+	set undodir=~/.vim/backup
 endif
 set history=100 "记住历史命令100个
 " set list	"显示控制字符
