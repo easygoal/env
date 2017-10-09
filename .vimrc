@@ -1,7 +1,7 @@
 " ========================================
 " general settings
 " ========================================
-set nocp
+set nocompatible 
 filetype off
 set nosol	"跳转到其他行时不跳转到相应列的开头
 set cin
@@ -150,6 +150,9 @@ Plugin 'morhetz/gruvbox'
 
 " Plugin
 Plugin 'mileszs/ack.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 "Plugin 'lifepillar/vim-mucomplete'  "自动补齐
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'Shougo/neocomplcache'
@@ -160,8 +163,6 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'mattn/calendar-vim'
 Plugin 'a.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/powerline'
-Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'MultipleSearch'
@@ -229,7 +230,7 @@ endif
 
 
 "--------------------------------------------------------------
-" bakeup settings
+" backup settings
 "--------------------------------------------------------------
 if has("win32")
 	" for windows
@@ -542,10 +543,10 @@ endif
 "	set guifont=Consolas\ for\ Powerline\ FixedD:h9
 "	set guifont=Consolas:h12:cANSI
 "	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
-"    set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
+"   set guifont=Bitstream_Vera_Sans_Mono:h10:cANSI
 "	set guifont=Consolas:h12:cANSI
 "	set guifont=Consolas\ for\ Powerline\ FixedD:h12
-"    set guifontwide=雅黑_Mono:h12:cGB2312
+"   set guifontwide=雅黑_Mono:h12:cGB2312
 "	set guifont=DejaVu_Sans_Mono_for_Powerline:h10
 "	set guifont=courier_new:h11
 "	set guifont=Inconsolata\ for\ Powerline:h12
@@ -670,17 +671,15 @@ let g:EasyMotion_leader_key = '<Leader>'
 " plugin - vim-airline.vim  
 "--------------------------------------------------------------------------- 
 if has("win32")
-	"	set guifont=Liberation_Mono_for_Powerline:h10 
-	"	set guifont=DejaVu_Sans_Mono_for_Powerline:h11 
-	set guifont=Sauce_Code_Powerline:h11
+	set guifont=DejaVu_Sans_Mono_for_Powerline:h10 
 else
-	set guifont=Liberation\ Mono\ for\ Powerline\ 11
+	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 endif
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
 let g:airline#extensionstabline#left_sep = ' '
 let g:airline#extensionstabline#left_alt_sep = '|'
-"let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'powerlineish'
 
 "--------------------------------------------------------------------------- 
 " plugin - ctrlp.vim  
