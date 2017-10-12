@@ -1035,17 +1035,17 @@ endfunction
 command -nargs=0 TimeStamp call TimeStamp()
 
 function AutoTimeStamp()
-	augr tagdate
+	augroup tagdate
 		au!
 		au BufWritePre,FileWritePre * call TimeStamp()
-	augr END
+	augroup END
 endfunction
 command -nargs=0 AutoTimeStamp call AutoTimeStamp()
 
 function NoAutoTimeStamp()
-	augr tagdate
+	augroup tagdate
 		au!
-	augr END
+	augroup END
 endfunction
 command -nargs=0 NoAutoTimeStamp call NoAutoTimeStamp()
 
@@ -1054,19 +1054,21 @@ command -nargs=0 NoAutoTimeStamp call NoAutoTimeStamp()
 " debug perl script
 "map ;d :w<CR>:!perl -d "%:p"<CR>
 
-autocmd BufNewFile,BufRead *.cdf   setfiletype c
-autocmd BufNewFile,BufRead *.swbc  setfiletype sh
-autocmd BufNewFile,BufRead *.txt   setf txt
-autocmd BufNewFile,BufRead *.zxt   setf zxt
-autocmd BufNewFile,BufRead *.zlg   setf ztxlog
-autocmd BufNewFile,BufRead *.sv    setf systemverilog
+augroup filetypedetect 
+    autocmd BufRead,BufNewFile *.cdf   setfiletype c
+    autocmd BufRead,BufNewFile *.swbc  setfiletype sh
+    autocmd BufRead,BufNewFile *.txt   setfiletype txt
+    autocmd BufRead,BufNewFile *.zxt   setfiletype zxt
+    autocmd BufRead,BufNewFile *.zlg   setfiletype ztxlog
+    autocmd BufRead,BufNewFile *.sv    setfiletype systemverilog
+augroup END
 
 function VsbFunction (arg1)
 	execute 'vert sb' a:arg1
 endfunction
 command -nargs=1 Vsb call VsbFunction(<f-args>)
 
-fun! Html(filename)
+function! Html(filename)
 	color spring
 	TOhtml
 	"exec "quit"
@@ -1079,7 +1081,7 @@ fun! Html(filename)
 	"	saveas "d:" . "/" . a:filename . ".html"
 	exec "saveas!" hfn
 	color torte
-endfun
+endfunction
 com! -nargs=1 Shtml :call Html(<q-args>)
 
 "if filereadable(expand("~/.vimrc.extra"))
