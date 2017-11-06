@@ -94,8 +94,6 @@ unsigned long GetHighResolutionTime() /* O: time in usec*/
 #endif // _WIN32
 
 static void print_usage( char* argv[] ) {
-    printf( "\nVersion:20160922    Build By kn007 (kn007.net)");
-    printf( "\nGithub: https://github.com/kn007/silk-v3-decoder\n");
     printf( "\nusage: %s in.pcm out.bit [settings]\n", argv[ 0 ] );
     printf( "\nin.pcm               : Speech input to encoder" );
     printf( "\nout.bit              : Bitstream output from encoder" );
