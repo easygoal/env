@@ -1,0 +1,33 @@
+#!/bin/bash
+
+NAME=`whoami`
+
+function has-session {
+	tmux has-session -t $NAME 2>/dev/null
+}
+
+if has-session ; then
+	echo "Resume session"
+	tmux attach-session -t $NAME
+else
+	tmux new-session -d -s $NAME -n local
+	tmux split-window -h -p 50
+	tmux new-window   -n PROJ1
+	tmux split-window -h -p 50 -t 1
+	tmux select-pane  -t 2 
+	tmux split-window -v -p 50 -t 2
+	tmux send-keys    -t ${NAME}:2.1 C-m
+	tmux send-keys    -t ${NAME}:2.2 C-m
+	tmux send-keys    -t ${NAME}:2.3 C-m
+	tmux new-window   -n PROJ2
+	tmux split-window -h -p 50 -t 1
+	tmux select-pane  -t 2 
+	tmux split-window -v -p 50 -t 2
+	tmux send-keys    -t ${NAME}:3.1 C-m
+	tmux send-keys    -t ${NAME}:3.2 C-m
+	tmux send-keys    -t ${NAME}:3.3 C-m
+	tmux select-window -t 2
+	tmux select-pane   -t 1
+
+fi
+
