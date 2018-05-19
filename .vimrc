@@ -23,8 +23,16 @@ set ru	"显示行和列的信息
 set scrolljump=-50	"保持光标在中间
 set scrolloff=0
 set autochdir	"打开文件、切换缓冲区、删除缓冲区或者打开/关闭窗口时改变当前工作目录的值。
-"set shell=C:/msys/1.0/bin/sh.exe
-"set makeprg=mingw32-make	"说明:make时使用的程序
+
+if has ('win32') || has ('win64')
+  let $CHERE_INVOKING=1
+  set shell=c:\cygwin\bin\bash.exe
+  set shellcmdflag=--login\ -c
+  set shellxquote=\"             "default value is (, but bash needs "
+  set shellslash
+  "set makeprg=mingw32-make	"说明:make时使用的程序
+endif
+
 set cindent shiftwidth=4	"自动缩进
 set autoindent shiftwidth=4
 set isfname+={,}
