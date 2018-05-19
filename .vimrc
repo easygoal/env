@@ -102,11 +102,12 @@ iab iname Guoyou Jiang
 "--------------------------------------------------------------------------- 
 " plugin - Vundle.vim  
 "--------------------------------------------------------------------------- 
-if has("win32")
-	set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-	call vundle#begin('$VIM/vimfiles/bundle/')
+if has('win32') || has ('win64')
+	" This path is for gVimPortable
+	set  rtp+=$VIM\..\..\Data\settings\vimfiles/bundle/Vundle.vim
+	call vundle#begin('$VIM\..\..\Data\settings\vimfiles\bundle\')
 else
-	set runtimepath+=~/.vim/bundle/Vundle.vim
+	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 	"	set runtimepath+=~/.vim/bundle/powerline/powerline/bindings/vim
 endif
