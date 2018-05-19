@@ -60,6 +60,10 @@ set cursorline
 "set cursorcolumn
 highlight CursorLine   guibg=darkgrey guifg=lightgrey ctermbg=lightred
 highlight CursorColumn guibg=darkgrey guifg=lightgrey ctermbg=lightred
+highlight DiffAdd      ctermbg=235 ctermfg=108 guibg=#262626 guifg=#87af87 cterm=reverse gui=reverse
+highlight DiffChange   ctermbg=235 ctermfg=103 guibg=#262626 guifg=#8787af cterm=reverse gui=reverse
+highlight DiffDelete   ctermbg=235 ctermfg=131 guibg=#262626 guifg=#af5f5f cterm=reverse gui=reverse
+highlight DiffText     ctermbg=235 ctermfg=208 guibg=#262626 guifg=#ff8700 cterm=reverse gui=reverse
 
 " 标签上只显示文件名，不显示路径
 function! ShortTabLabel ()
@@ -110,6 +114,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 " vim-scripts repos
+
+" Tmux
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'roxma/vim-tmux-clipboard'
 
 " Syntax
 "Plugin 'asciidoc.vim'
@@ -679,7 +687,8 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
 let g:airline#extensionstabline#left_sep = ' '
 let g:airline#extensionstabline#left_alt_sep = '|'
-let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'gruvbox'
 
 "--------------------------------------------------------------------------- 
 " plugin - ctrlp.vim  
@@ -749,7 +758,7 @@ let Tlist_Show_One_File = 1                "只显示一个文件中的tag
 "--------------------------------------------------------------------------- 
 " plugin - winmanger.vim  
 "--------------------------------------------------------------------------- 
-let g:winManagerWindowLayout = "TagList|FileExplorer"		" 设置界面分割
+"let g:winManagerWindowLayout = "TagList|FileExplorer"		" 设置界面分割
 let g:winManagerWidth = 30									"设置winmanager的宽度，默认为25
 nmap <silent> <F8> :WMToggle<cr>							"定义打开关闭winmanager快捷键为F8
 let g:AutoOpenWinManager = 1								"在进入vim时自动打开winmanager
