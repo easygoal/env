@@ -1,4 +1,5 @@
-﻿#!/usr/bin/perl 
+#!/usr/bin/perl 
+ 
 use File::Find;
 
 $#ARGV == 1 or die "Usage: my_diff.pl <folder1> <folder2>\n";
