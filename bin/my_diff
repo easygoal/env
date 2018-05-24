@@ -1,0 +1,88 @@
+#!/usr/bin/perl
+
+use File: my_diff
+
+$#ARGV == 1 or die "Usage: my_diff.pl <folder1> <folder2>\n";
+
+$path0 = $ARGV[0];
+$path1 = $ARGV[1];
+$path0 =~ s/\/$//g;
+$path1 =~ s/\/$//g;
+
+# Traverse through folder 0 and folder 1
+find(\&wanted0, $path0);
+find(\&wanted1, $path1);
+
+foreach my $key (sort keys %hash0) {
+	if ($hash1{$key} != 1) {
+		$nomatch0 = $nomatch0."$path0\/$key \n";
+	}
+	else {
+		$hash1{$key} = 2;
+		system "diff $path0\/$key $path1\/$key > /dev/null" ;
+		if ($? == 0) {
+		}
+		else {
+			$mismatch = $mismatch."gvimdiff $path0\/$key $path1\/$key \n";
+		}
+	}
+}
+
+foreach my $key (sort keys $hash1) {
+	if ($hash1{$key} != 2) {
+		$nomatch1=$nomatch1."$path1\/$key \n";
+	}
+}
+
+print $mismatch;
+print "--------------------------------------------------- \n";
+print "  Files only found in $path0                        \n";
+print "----------------------------------------------------\n";
+print $nomatch0;
+
+print "--------------------------------------------------- \n";
+print "  Files only found in $path1                        \n";
+print "----------------------------------------------------\n";
+print $nomatch1;
+
+#---------------
+# Functions
+#---------------
+sub wanted0 {
+	(/CVS/)   and $File::Find::prune = 1; 
+	(/\.svn/) and $File::Find::prune = 1;
+	(/\.git/) and $File::Find::prune = 1;
+	next if (/^aa$/);                      # ignore aa
+	next if (/^bb$/);                      # ignore bb
+	next if (/sw.$/);                      # ignore *.sw*
+	next if (/\~$/);                       # ignore *~ file
+	next if (/\#/);                        # ignore filename with '#'
+
+	# process only files, not directories
+	if (-f) {
+		$fullname = $File:Find::name;
+		if ($fullname =~ /$path0\/*(.*)$/ ) {
+			$hash0{$1} = 1;
+		}
+	}
+}
+
+sub wanted1 {
+	(/CVS/)   and $File::Find::prune = 1; 
+	(/\.svn/) and $File::Find::prune = 1;
+	(/\.git/) and $File::Find::prune = 1;
+	next if (/^aa$/);                      # ignore aa
+	next if (/^bb$/);                      # ignore bb
+	next if (/sw.$/);                      # ignore *.sw*
+	next if (/\~$/);                       # ignore *~ file
+	next if (/\#/);                        # ignore filename with '#'
+
+	# process only files, not directories
+	if (-f) {
+		$fullname = $File:Find::name;
+		if ($fullname =~ /$path1\/*(.*)$/ ) {
+			$hash1{$1} = 1;
+		}
+	}
+}
+
