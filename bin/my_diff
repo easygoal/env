@@ -1,6 +1,5 @@
-#!/usr/bin/perl
-
-use File: my_diff
+﻿#!/usr/bin/perl 
+use File::Find;
 
 $#ARGV == 1 or die "Usage: my_diff.pl <folder1> <folder2>\n";
 
@@ -28,7 +27,7 @@ foreach my $key (sort keys %hash0) {
 	}
 }
 
-foreach my $key (sort keys $hash1) {
+foreach my $key (sort keys %hash1) {
 	if ($hash1{$key} != 2) {
 		$nomatch1=$nomatch1."$path1\/$key \n";
 	}
@@ -60,7 +59,7 @@ sub wanted0 {
 
 	# process only files, not directories
 	if (-f) {
-		$fullname = $File:Find::name;
+		$fullname = $File::Find::name;
 		if ($fullname =~ /$path0\/*(.*)$/ ) {
 			$hash0{$1} = 1;
 		}
@@ -79,7 +78,7 @@ sub wanted1 {
 
 	# process only files, not directories
 	if (-f) {
-		$fullname = $File:Find::name;
+		$fullname = $File::Find::name;
 		if ($fullname =~ /$path1\/*(.*)$/ ) {
 			$hash1{$1} = 1;
 		}
