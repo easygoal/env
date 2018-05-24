@@ -23,8 +23,16 @@ set ru	"显示行和列的信息
 set scrolljump=-50	"保持光标在中间
 set scrolloff=0
 set autochdir	"打开文件、切换缓冲区、删除缓冲区或者打开/关闭窗口时改变当前工作目录的值。
-"set shell=C:/msys/1.0/bin/sh.exe
-"set makeprg=mingw32-make	"说明:make时使用的程序
+
+if has ('win32') || has ('win64')
+  let $CHERE_INVOKING=1
+  set shell=c:\cygwin\bin\bash.exe
+  set shellcmdflag=--login\ -c
+  set shellxquote=\"             "default value is (, but bash needs "
+  set shellslash
+  "set makeprg=mingw32-make	"说明:make时使用的程序
+endif
+
 set cindent shiftwidth=4	"自动缩进
 set autoindent shiftwidth=4
 set isfname+={,}
@@ -60,6 +68,10 @@ set cursorline
 "set cursorcolumn
 highlight CursorLine   guibg=darkgrey guifg=lightgrey ctermbg=lightred
 highlight CursorColumn guibg=darkgrey guifg=lightgrey ctermbg=lightred
+highlight DiffAdd      ctermbg=235 ctermfg=108 guibg=#262626 guifg=#87af87 cterm=reverse gui=reverse
+highlight DiffChange   ctermbg=235 ctermfg=103 guibg=#262626 guifg=#8787af cterm=reverse gui=reverse
+highlight DiffDelete   ctermbg=235 ctermfg=131 guibg=#262626 guifg=#af5f5f cterm=reverse gui=reverse
+highlight DiffText     ctermbg=235 ctermfg=208 guibg=#262626 guifg=#ff8700 cterm=reverse gui=reverse
 
 " 标签上只显示文件名，不显示路径
 function! ShortTabLabel ()
@@ -98,11 +110,12 @@ iab iname Guoyou Jiang
 "--------------------------------------------------------------------------- 
 " plugin - Vundle.vim  
 "--------------------------------------------------------------------------- 
-if has("win32")
-	set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-	call vundle#begin('$VIM/vimfiles/bundle/')
+if has('win32') || has ('win64')
+	" This path is for gVimPortable
+	set  rtp+=$VIM\..\..\Data\settings\vimfiles/bundle/Vundle.vim
+	call vundle#begin('$VIM\..\..\Data\settings\vimfiles\bundle\')
 else
-	set runtimepath+=~/.vim/bundle/Vundle.vim
+	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 	"	set runtimepath+=~/.vim/bundle/powerline/powerline/bindings/vim
 endif
@@ -110,6 +123,10 @@ Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 " vim-scripts repos
+
+" Tmux
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'roxma/vim-tmux-clipboard'
 
 " Syntax
 "Plugin 'asciidoc.vim'
@@ -679,7 +696,8 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
 let g:airline#extensionstabline#left_sep = ' '
 let g:airline#extensionstabline#left_alt_sep = '|'
-let g:airline_theme = 'powerlineish'
+"let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'gruvbox'
 
 "--------------------------------------------------------------------------- 
 " plugin - ctrlp.vim  
@@ -749,7 +767,7 @@ let Tlist_Show_One_File = 1                "只显示一个文件中的tag
 "--------------------------------------------------------------------------- 
 " plugin - winmanger.vim  
 "--------------------------------------------------------------------------- 
-let g:winManagerWindowLayout = "TagList|FileExplorer"		" 设置界面分割
+"let g:winManagerWindowLayout = "TagList|FileExplorer"		" 设置界面分割
 let g:winManagerWidth = 30									"设置winmanager的宽度，默认为25
 nmap <silent> <F8> :WMToggle<cr>							"定义打开关闭winmanager快捷键为F8
 let g:AutoOpenWinManager = 1								"在进入vim时自动打开winmanager
