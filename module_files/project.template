@@ -1,0 +1,22 @@
+#!/usr/bin/tclsh
+
+module-version "./R10" default
+set ModulesVersion     "R1"
+set PROJ_NAME          "Jupiter"
+
+proc ModulesHelp { } {
+	global version modroot
+	puts stderr "Set the tool environment for Project $PROJ_NAME "
+}
+
+module-whatis "Set the tool environment for Project $PROJ_NAME"
+
+setenv PROJ_NAME  $PROJ_NAME
+
+# Alias command
+set-alias bmake   "bsub -P $PROJ_NAME -q analog         '/usr/bin/make ' "
+set-alias xbmake  "bsub -P $PROJ_NAME -q analog -Is -XF '/usr/bin/make ' "
+
+# Tools setup
+module load vendor/tool/version
+
