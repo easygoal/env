@@ -111,6 +111,8 @@ Plugin 'VundleVim/Vundle.vim'
 " My Bundles here:
 " vim-scripts repos
 
+"Plugin 'vim-scripts/OutlookVim'
+
 " Syntax
 "Plugin 'asciidoc.vim'
 "Plugin 'confluencewiki.vim'
