@@ -1,0 +1,25 @@
+[user]
+	name  = Guoyou Jiang
+	email = guoyou.jiang@spreadtrum.com
+[color]
+	ui = auto
+[gui] 
+	fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	tabsize  = 4
+[alias] 
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	st = status
+	co = checkout
+	ci = commit
+	mg = merge --no-ff
+	d = difftool
+[core]
+	autocrlf = false
+	
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+	trustExitCode = true
+[mergetool]
+	trustExitCode = true
