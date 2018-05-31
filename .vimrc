@@ -539,6 +539,7 @@ endif
 if (has("gui_running"))
 	set wrap
 	set guioptions+=b
+	set guioptions-=T   "remove toolbar
 	set background=dark
 	if $USER == "root"
 		colo peachpuff
