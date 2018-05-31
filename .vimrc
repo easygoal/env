@@ -127,6 +127,7 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'vim-scripts/OutlookVim'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'roxma/vim-tmux-clipboard'
+"Plugin 'guyzmo/notmuch-abook'
 
 " Syntax
 "Plugin 'asciidoc.vim'
