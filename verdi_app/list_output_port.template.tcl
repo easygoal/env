@@ -27,22 +27,22 @@ set module_list {
 }
 
 foreach modHier $module_list {
-	set modHdl [npi_handle_by_name -name $modHier -scope ""]
-	set modFullName [npi_get_str -property npiFullName -object $modHdl]
-	
-	#Traverse port
-	set portItr [npi_iterate -type npiPort -refHandle $modHdl]
-	while { [set portHdl [npi_scan -iterate $portItr]] != ""} {
-		set portName       [npi_get_str -property npiName      -object $portHdl ]
-		set portDirection  [npi_get_str -property npiDirection -object $portHdl ]
-		set portSize       [npi_get     -property npiSize      -object $portHdl ]
-		if { $portDirection == "npiOutput" } {
-			if { $portSize == 1} {
-				puts $fp "$modFullName.$portName"
-			} else {
+  set modHdl [npi_handle_by_name -name $modHier -scope ""]
+  set modFullName [npi_get_str -property npiFullName -object $modHdl]
+  
+  #Traverse port
+  set portItr [npi_iterate -type npiPort -refHandle $modHdl]
+  while { [set portHdl [npi_scan -iterate $portItr]] != ""} {
+    set portName       [npi_get_str -property npiName      -object $portHdl ]
+    set portDirection  [npi_get_str -property npiDirection -object $portHdl ]
+    set portSize       [npi_get     -property npiSize      -object $portHdl ]
+    if { $portDirection == "npiOutput" } {
+      if { $portSize == 1} {
+        puts $fp "$modFullName.$portName"
+      } else {
         puts $fp "$modFullName.$portName\[[ expr {$portSize-1} ]:0\]"
-		  }
-		}
+      }
+    }
   }
 }
 
