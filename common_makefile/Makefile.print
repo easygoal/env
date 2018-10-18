@@ -1,0 +1,17 @@
+### Some useful command in Makefile
+
+ifndef __USEFUL_COMMAND__
+__USEFUL_COMMAND__ = 1
+
+print-%: ; @echo $* = $($*)
+
+.PHONY: avail
+
+avail: 
+	@$(MAKE) -pRrq \
+			| awk -v RS= -F: '/^# Files/,/^# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' \
+			| sort \
+			| egrep -v -e '^[^[:alnum:]]' -e '^$@$$'
+
+endif
+

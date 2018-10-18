@@ -1,0 +1,40 @@
+include common_makefile/Makefile.print
+
+PWD         = `pwd`
+DIRNAME     = $(shell basename ${PWD})
+TIMESTAMP   = `date +%Y%m%d_%H%M%S`
+DESIGN_TOP := ${DIRNAME}
+VERDI_LIB  := chip_lib
+
+vhdlcom:
+	\vhdlcom -q -logdir log/$@ -lib chip_lib \
+			-93 -sup_sem_error -smartorder -comment_transoff_regions \
+			-f proj_rtl.f
+
+vericom:
+	\vericom -q -sv \
+			+systemverilogext+sv \
+			+v95ext+v95 \
+			+verilog2001ext+v \
+			-ignorekwd_config \
+			-error=noMPD \
+			-lib chip_lib \
+			-logdir log/$@ \
+			-f proj_rtl.vc \
+			-f proj_lib.vc \
+			-f proj_tb.vc
+
+verdi:
+	\verdi -q -quiet -nologo -lib ${VERDI_LIB} -L chip_lib \
+			-logdir log/$@ \
+			-top "proj_top_th" &
+
+# PXP
+# -v ${UXE_HOME}/share/uxe/etc/hdlice_ref.v
+
+# FPGA
+# +libext+.v+.sv
+# -y ${XILINX_VIVADO}/data/verilog/src/unisims
+# -y ${XILINX_VIVADO}/data/verilog/src/retarget
+#    ${XILINX_VIVADO}/data/verilog/src/glbl.v
+

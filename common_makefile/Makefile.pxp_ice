@@ -1,0 +1,31 @@
+include common_makefile/Makefile.print
+
+PWD         = `pwd`
+DIRNAME     = $(shell basename ${PWD})
+TIMESTAMP   = `date +%Y%m%d_%H%M%S`
+DESIGN_TOP := ${DIRNAME}
+
+clean:
+	xeCompile -clean
+
+vavhdl:
+	vavhdl -work chip_lib \
+			-logFile log/$@.log \
+			-f proj_rtl.f
+
+vavlog:
+	vavlog -sv \
+			+define+PXP_SYN+DELAY+AXIS+CHIP_SIM \
+			-work chip_lib \
+			-logFile log/$@.log \
+			-f proj_rtl.vc \
+			-f proj_lib.vc \
+			-f proj_tb.vc
+
+vaelab:
+	vaelab ${DESIGN_TOP} \
+			-work chip_lib \
+			-logFile log/$@.log \
+			-outputVlog ${DESIGN_TOP}.vg
+
+

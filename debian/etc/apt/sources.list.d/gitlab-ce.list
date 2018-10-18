@@ -1,0 +1,2 @@
+#deb http://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/debian $(lsb_release -cs) main
+deb http://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/debian stretch main

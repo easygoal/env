@@ -1,0 +1,7 @@
+[grafana]
+name=grafana
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/grafana/yum/el$releasever/
+repo_gpgcheck=0
+gpgcheck=0
+enabled=1
+

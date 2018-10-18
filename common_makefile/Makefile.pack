@@ -1,0 +1,33 @@
+# This file is used to release PXP database
+
+pack:
+	mkdir ${DATABASE}
+	if [ -e chip_lib.lib++ ]; then pushd ${DATABASE}; ln -s ${PWD}/chip_lib.lib++ . ; popd; fi
+	if [ -e upf            ]; then pushd ${DATABASE}; ln -s ${PWD}/upf            . ; popd; fi
+	if [ -e chip_top.bp    ]; then cp -ar chip_top.bp  ${DATABASE} ; fi
+	if [ -e emu_run        ]; then cp -ar emu_run      ${DATABASE} ; fi
+	cp -ar Makefile           ${DATABASE}
+	cp -ar emu_env.csh        ${DATABASE}
+	cp -Lr *.tcl              ${DATABASE} 
+	cp -Lr *.tdf              ${DATABASE} 
+	cp -Lr *.log              ${DATABASE} 
+	cp -Lr *.hex              ${DATABASE}
+	cp -rf ${DATABASE}        ${DATABASE}_tmp
+	cp -rf ${DATABASE}_tmp    ${DATABASE}/${DATABASE}
+	rm -rf ${DATABASE}_tmp
+	cp -Lr .design            ${DATABASE}
+	cp -ar tmp                ${DATABASE}
+	cp -ar PDB                ${DATABASE}
+	cp -ar QTDB               ${DATABASE}
+	cp -ar dbFiles            ${DATABASE}
+	cp -ar cellList           ${DATABASE}
+	sed -i "s|debug\ *.|debug ${PATH_RELEASE}/${DATABASE} |g" ${DATABASE}/${DATABASE}/run.tcl
+	\chmod 755 -R ${DATABASE}/${DATABASE}
+
+tar: pack
+	tar -zcvf ${DATABASE}.tar.gz ${DATABASE}
+	\rm -rf ${DATABASE}
+
+release: pack
+	\mv ${DATABASE} ${PATH_RELEASE}
+
