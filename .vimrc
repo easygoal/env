@@ -130,7 +130,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 
 Plugin 'vim-scripts/OutlookVim'
-Plugin 'guyzmo/notmuch-abook'
+"Plugin 'guyzmo/notmuch-abook'
 
 
 " Syntax
