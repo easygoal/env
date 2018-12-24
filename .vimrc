@@ -1113,7 +1113,7 @@ com! -nargs=1 Shtml :call Html(<q-args>)
 "endif
 
 " 将当前正在编辑但未保存的文件与已保存的做diff
-func DiffWithSaved()
+function DiffWithSaved()
 	let ft=&filetype
 	diffthis
 	vnew | r # | normal! 1Gdd
@@ -1124,7 +1124,7 @@ com DiffSaved call DiffWithSaved()
 nnoremap <Leader>df :call DiffWithSaved()<CR>
 
 " 自动更新文件头处的修改时间，文件名
-fun LastMod()
+function LastMod()
 	let l:line = line(".")                            " save cursor position
 	let l:col = col(".")
 	let l = min([line("$"), 8])
@@ -1139,4 +1139,12 @@ inoremap <M-i> <C-C>:let @z = @"<CR>mz
 			\:exec 'normal!' (col('.')==1 && col('$')==1 ? 'k' : 'kl')<CR>
 			\:exec (col('.')==col('$') - 1 ? 'let @" = @_' : 'normal! yw')<CR>
 			\`zp:let @" = @z<CR>a
+
+""" " Vertical Split Buffer
+""" "    Function 
+""" function VerticalSplitBuffer(buffer)
+""" 	execute "vert belowright sb" a:buffer
+""" endfunction
+""" "    Mapping
+""" command -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
 
