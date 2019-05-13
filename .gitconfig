@@ -15,6 +15,7 @@
 	d = difftool
 [core]
 	autocrlf = false
+	quotepath = false
 	
 [diff]
 	tool = vimdiff
