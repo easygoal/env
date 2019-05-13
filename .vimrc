@@ -129,8 +129,8 @@ Plugin 'roxma/vim-tmux-clipboard'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'vim-scripts/OutlookVim'
-Plugin 'guyzmo/notmuch-abook'
+"Plugin 'vim-scripts/OutlookVim'
+"Plugin 'guyzmo/notmuch-abook'
 
 
 " Syntax
@@ -142,6 +142,9 @@ Plugin 'guyzmo/notmuch-abook'
 "Plugin 'moin.vim'
 "Plugin 'python.vim--Vasiliev'
 "Plugin 'xml.vim'
+
+" Lint
+Plugin 'w0rp/ale'
 
 " Color
 "Plugin 'desert256.vim'
