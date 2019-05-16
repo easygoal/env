@@ -5,12 +5,16 @@ DIRNAME     = $(shell basename ${PWD})
 TIMESTAMP   = `date +%Y%m%d_%H%M%S`
 DESIGN_TOP := ${DIRNAME}
 
+# Extra options in make time
+ext         = 
+
 clean:
 	xeCompile -clean
 
 vavhdl:
 	vavhdl -work chip_lib \
 			-logFile log/$@.log \
+			${ext} \
 			-f proj_rtl.f
 
 vavlog:
@@ -18,6 +22,7 @@ vavlog:
 			+define+PXP_SYN+DELAY+AXIS+CHIP_SIM \
 			-work chip_lib \
 			-logFile log/$@.log \
+			${ext} \
 			-f proj_rtl.vc \
 			-f proj_lib.vc \
 			-f proj_tb.vc
@@ -26,6 +31,7 @@ vaelab:
 	vaelab ${DESIGN_TOP} \
 			-work chip_lib \
 			-logFile log/$@.log \
+			${ext} \
 			-outputVlog ${DESIGN_TOP}.vg
 
 
