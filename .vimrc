@@ -183,8 +183,8 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'lifepillar/vim-mucomplete'  "自动补齐
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'Shougo/neocomplcache'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'easygoal/neosnippet-snippets'
 Plugin 'The-NERD-tree'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'mattn/calendar-vim'
@@ -800,8 +800,8 @@ let g:bufExplorerUseCurrentWindow=0  " Open in new window.
 "--------------------------------------------------------------------------- 
 " plugin - NERD_tree.vim  
 "--------------------------------------------------------------------------- 
-nmap <C-F8> :NERDTreeToggle<cr> 
-imap <C-F8> <Esc>:NERDTreeToggle<cr> 
+nmap <F8> :NERDTreeToggle<cr>
+imap <F8> <Esc>:NERDTreeToggle<cr>
 
 "--------------------------------------------------------------------------- 
 " plugin -BASH_SUPPORT.vim  
@@ -1144,6 +1144,15 @@ inoremap <M-i> <C-C>:let @z = @"<CR>mz
 			\:exec 'normal!' (col('.')==1 && col('$')==1 ? 'k' : 'kl')<CR>
 			\:exec (col('.')==col('$') - 1 ? 'let @" = @_' : 'normal! yw')<CR>
 			\`zp:let @" = @z<CR>a
+
+" Toggle Menu and Toolbar
+map <silent> <F2>: if &guioptions =~# 'T' <Bar>
+		\set guioptions-=m <Bar>
+		\set guioptions-=T <Bar>
+	\else <Bar>
+		\set guioptions+=m <Bar>
+		\set guioptions+=T <Bar>
+	\endif<CR>
 
 """ " Vertical Split Buffer
 """ "    Function 
