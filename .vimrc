@@ -84,7 +84,7 @@ set guitablabel=%{ShortTabLabel()}
 
 "au FileType vhdl set fo-=cro|set comments=:--
 "set mapleader
-"let mapleader = ","
+let mapleader = ","
 
 set tags=tags
 "set autochdir
@@ -132,6 +132,8 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'vim-scripts/OutlookVim'
 "Plugin 'guyzmo/notmuch-abook'
 
+" Verilog mode
+Plugin 'zhuzhzh/verilog_emacsauto.vim'
 
 " Syntax
 "Plugin 'asciidoc.vim'
@@ -777,9 +779,9 @@ let Tlist_Show_One_File = 1                "只显示一个文件中的tag
 " plugin - winmanger.vim  
 "--------------------------------------------------------------------------- 
 "let g:winManagerWindowLayout = "TagList|FileExplorer"		" 设置界面分割
-let g:winManagerWidth = 30									"设置winmanager的宽度，默认为25
-nmap <silent> <F8> :WMToggle<cr>							"定义打开关闭winmanager快捷键为F8
-let g:AutoOpenWinManager = 1								"在进入vim时自动打开winmanager
+"let g:winManagerWidth = 30									"设置winmanager的宽度，默认为25
+"nmap <silent> <F8> :WMToggle<cr>							"定义打开关闭winmanager快捷键为F8
+"let g:AutoOpenWinManager = 1								"在进入vim时自动打开winmanager
 
 "---------------------------------------------------------------------------  
 " plugin - BufExplorer.vim 
