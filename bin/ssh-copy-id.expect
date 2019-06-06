@@ -1,0 +1,17 @@
+#!/usr/bin/expect
+
+set timeout 3
+
+set USER_NAME [lindex $argv 0]
+set HOST_NAME [lindex $argv 1]
+set SECRET    [lindex $argv 2]
+
+spawn ssh-copy-id -i /home/${USER_NAME}/.ssh/id_rsa.pub git@${HOST_NAME}
+
+expect {
+	"yes/no"    {send "yes\r"; exp_continue }
+	"password:" {send ${SECRET}\r }
+}
+
+expect eof
+
