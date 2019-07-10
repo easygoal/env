@@ -5,8 +5,8 @@
 
 module-version "./R10" default
 set ModulesVersion     "R1"
-set TOOL_NAME          "verdi"
-set TOOL_VERSION       "O-2018.09-SP1"
+set TOOL_NAME          "spyglass_ufe"
+set TOOL_VERSION       "P-2019.06"
 
 proc ModulesHelp { } {
 	global version modroot
@@ -15,15 +15,16 @@ proc ModulesHelp { } {
 
 module-whatis   "Set the environment for Tool $TOOL_NAME $TOOL_VERSION "
 
-conflict synopsys/verdi
+conflict synopsys/spyglass_ufe
 
-set    prefix       /mnt/e/tools/debian/eda/synopsys/${TOOL_NAME}/${TOOL_VERSION}
+set    prefix       /ic/eda_tools/synopsys/${TOOL_NAME}/${TOOL_VERSION}
 
-setenv VERDI_HOME   $prefix
+set    SPYGLASS_HOME     $prefix/SPYGLASS_HOME
+setenv SPYGLASS_HOME     $prefix/SPYGLASS_HOME
 
-prepend-path PATH             $prefix/bin
-prepend-path LD_LIBRARY_PATH  $prefix/share/PLI/VCS/linux64
-#prepend-path LD_LIBRARY_PATH  $prefix
+prepend-path PATH             $SPYGLASS_HOME/bin
+#prepend-path LD_LIBRARY_PATH 
+
 # # Alias command
 # set-alias bmake   "bsub -P $PROJ_NAME -q analog         '/usr/bin/make ' "
 # set-alias xbmake  "bsub -P $PROJ_NAME -q analog -Is -XF '/usr/bin/make ' "

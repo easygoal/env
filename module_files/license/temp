@@ -1,0 +1,24 @@
+#%Module1.0#####################################################################
+##
+## modules modulefile
+##
+
+module-version "./R10" default
+set ModulesVersion     "R1"
+set TOOL_NAME          "license"
+set TOOL_VERSION       "synopsys"
+
+proc ModulesHelp { } {
+	global version modroot
+	puts stderr "Set the environment for Tool $TOOL_NAME $TOOL_VERSION "
+}
+
+module-whatis   "Set the environment for Tool $TOOL_NAME $TOOL_VERSION "
+
+#set    prefix   /ic/eda_tools/synopsys/${TOOL_NAME}/${TOOL_VERSION}
+setenv SNPSLMD_LICENSE_FILE 27020@bjserver05
+
+#prepend-path PATH   $prefix/bin
+
+# Tools setup
+#module load vendor/tool/version
