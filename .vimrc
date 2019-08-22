@@ -11,7 +11,9 @@ set lbr	"linebreak在列的最右边单词可以断开显示
 set backspace=indent,eol,start
 set whichwrap=b,s,<,>,[,]
 set fo+=mB
-set noet	"不展开tab为空格
+set expandtab " use space when <TAB> is inserted
+autocmd FileType make set noexpandtab " don't expand tab for Makefile
+
 set selectmode=
 set mousemodel=popup
 set keymodel=
