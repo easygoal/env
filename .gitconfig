@@ -12,13 +12,13 @@
 	co = checkout
 	ci = commit
 	mg = merge --no-ff
-	d = difftool
+	gdiff = difftool
 [core]
 	autocrlf = false
 	quotepath = false
 	
 [diff]
-	tool = vimdiff
+	tool = gvimdiff
 [difftool]
 	prompt = false
 	trustExitCode = true
