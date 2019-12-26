@@ -1,26 +1,26 @@
 [user]
-	name  = Guoyou Jiang
-	email = easygoal@live.com
+    name  = Guoyou Jiang
+    email = easygoal@live.com
 [color]
-	ui = auto
+    ui = auto
 [gui] 
-	fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-	tabsize  = 4
+    fontdiff = -family Courier -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+    tabsize  = 4
 [alias] 
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	st = status
-	co = checkout
-	ci = commit
-	mg = merge --no-ff
-	gdiff = difftool
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    st = status
+    co = checkout
+    ci = commit
+    mg = merge --no-ff
+    gdiff = difftool
 [core]
-	autocrlf = false
-	quotepath = false
-	
+    autocrlf = false
+    quotepath = false
+    fileMode = false
 [diff]
-	tool = gvimdiff
+    tool = gvimdiff
 [difftool]
-	prompt = false
-	trustExitCode = true
+    prompt = false
+    trustExitCode = true
 [mergetool]
-	trustExitCode = true
+    trustExitCode = true
