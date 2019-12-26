@@ -12,15 +12,20 @@
 	co = checkout
 	ci = commit
 	mg = merge --no-ff
-	d = difftool
+	gdiff = difftool
 [core]
 	autocrlf = false
 	quotepath = false
-	
+	fileMode = false
 [diff]
-	tool = vimdiff
+	tool = gvimdiff
 [difftool]
 	prompt = false
 	trustExitCode = true
 [mergetool]
 	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

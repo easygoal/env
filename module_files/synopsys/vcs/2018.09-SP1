@@ -17,7 +17,7 @@ module-whatis   "Set the environment for Tool $TOOL_NAME $TOOL_VERSION "
 
 conflict synopsys/vcs
 
-set    prefix       /mnt/e/tools/debian/eda/synopsys/${TOOL_NAME}/${TOOL_VERSION}
+set    prefix       /opt/synopsys/${TOOL_NAME}/${TOOL_VERSION}
 
 setenv VCS_HOME     $prefix
 
