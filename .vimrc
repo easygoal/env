@@ -88,8 +88,8 @@ set guitablabel=%{ShortTabLabel()}
 "set mapleader
 let mapleader = ","
 
-set tags=tags
-"set autochdir
+set tags=tags;
+set autochdir
 
 
 " 在文件名上按gf时，在新的tab中打开
@@ -765,18 +765,20 @@ let b:match_words =
 "--------------------------------------------------------------------------- 
 " plugin - taglist.vim  
 "--------------------------------------------------------------------------- 
-"let Tlist_Ctags_Cmd = "ctags.exe"
-":map <silent> <F8> :Tlist<cr>
+:map <F5> :silent! Tlist<cr>
 "imap <F8> <ESC>:Tlist<CR>i
 ":nmap <silent><F8> :TlistToggle<cr>  
-"let Tlist_Show_Menu=1						"显示taglist菜单
-"let Tlist_Sort_Type = "name"               "order by 
-"let Tlist_Use_Right_Window = 1             "把函数列在右边  
-let Tlist_Compart_Format = 1               "show small meny 
-let Tlist_Exit_OnlyWindow = 1             "if you are the last, kill yourself  
-"let Tlist_File_Fold_Auto_Close = 1         "当前不被编辑的文件的方法列表自动折叠起来 
-"let Tlist_Enable_Fold_Column = 0           "do not show folding tree  
+let Tlist_Ctags_Cmd = "ctags"
+let Tlist_Use_Right_Window = 1             "把函数列在右边  
 let Tlist_Show_One_File = 1                "只显示一个文件中的tag
+let Tlist_File_Fold_Auto_Close = 1         "当前不被编辑的文件的方法列表自动折叠起来 
+let Tlist_Exit_OnlyWindow = 1              "if you are the last, kill yourself  
+let Tlist_Process_File_Always = 0          "Don't update tags in real-time
+let Tlist_Show_Menu=1                      "显示taglist菜单
+"let Tlist_Sort_Type = "name"               "order by 
+let Tlist_Compart_Format = 1               "show small menu
+let Tlist_Inc_winwidth = 0 
+"let Tlist_Enable_Fold_Column = 0           "do not show folding tree  
 
 "--------------------------------------------------------------------------- 
 " plugin - winmanger.vim  
