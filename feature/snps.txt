@@ -1,8 +1,13 @@
+ DWC-AMBA-Fabric-Source
  DWC-AXI-DMAC  
  DWC-DDRCTL    
+ DWC-GMAC
+ DWC-MAC
+ DWC-ETHERNET
  DWC-SSI      
  DWC-SSI-SRC  
- DWC-UNIVERSAL-DDR-CTL2-BASE  
+ DWC-UNIVERSAL-DDR-CTL2-BASE 
+ DWC-UNIVERSAL-DDR-MCTL2-MP
  VIP-AMBA-ACE-SVT  
  VIP-AMBA-ACE5-SVT   
  VIP-AMBA-AHB-SVT    
@@ -20,8 +25,51 @@
  VIP-SOC-LIBRARY-SVT 
  VIP-UART-SVT        
  VIP-UFS31-SVT       
- VERDI-ULTRA         
+ VERDI-ULTRA  
+ VerdiSimDB
+ oemunlock
+ checker
+ Advanced_CDC
+ BasePolicyS0
+ SG-Verdi-Plugin
+ adv_checker
+ adv_power_rednso
+ cdc_soc_abstraction
+ power_estso
+ power_memso
+ power_rednso
+ save_restore
+ system_verilog
+ gui
+ char_edit_model_file
+ dashboard
+ datasheet
+ VCLP-Verdi-Plugin
+ VC-STATIC-VERDI-PLUGIN
+ VerdiTransactionDebugUltra
+ ICValidator2-Manager
+ ICValidator-Manager
+ STAR-RC2_ULTRA_MANAGER
+ SIS_CHAR
+ SIS_BASE_CLIENT
+ Digital-AF
+ MVBGEN
+ MVCMP
+ PowerAwareAnalysis
+ ICCompilerII
+ ICCompilerII-NX
+ ICCompilerII-4
+ ICCompilerII-4-AdvGeo
+ ICCompilerII-8
+ ICCompilerII-8-AdvGeo
  VC-AUTO-TESTBENCH
  VC-AUTO-TESTBENCH-VERDI-PLUGINa
  GalaxyConstraint
+ VT_FGP_Runtime
+ VerdiCoverage
+ dftso
+ In-Design-Static-Rail
+ PrimeTime-ADV
+ VT_VCS_Xprop
+ VT_VCS_XPropRuntime
 
