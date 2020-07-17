@@ -1,0 +1,46 @@
+SRCDIR := .
+SVGDIR := svg 
+EMFDIR := emf
+PNGDIR := png
+PDFDIR := pdf
+
+DIAS   := $(wildcard $(SRCDIR)/*.dia)
+JSON   := $(wildcard $(SRCDIR)/*.json)
+SVGS   := $(patsubst %.dia,  $(SVGDIR)/%.svg, $(DIAS))
+EMFS   := $(patsubst %.dia,  $(EMFDIR)/%.emf, $(DIAS))
+PNGS   := $(patsubst %.dia,  $(PNGDIR)/%.png, $(DIAS))
+PDFS   := $(patsubst %.dia,  $(PDFDIR)/%.pdf, $(DIAS))
+WAVE   := $(patsubst %.json, $(SVGDIR)/%.svg, $(JSON))
+
+#debug:
+#	@echo $(DIAS)
+#	@echo $(SVGS)
+#	@echo $(EMFS)
+#	@echo $(WAVE)
+
+svg: $(SVGS)
+
+emf: $(EMFS)
+
+png: $(PNGS)
+
+pdf: $(PDFS)
+
+wavedrom: $(WAVE)
+
+$(SVGS): $(SVGDIR)/%.svg: %.dia
+	dia -e $@ $<
+
+$(EMFS): $(EMFDIR)/%.emf: %.dia
+	dia -e $@ $<
+
+$(PNGS): $(PNGDIR)/%.png: %.dia
+	dia -e $@ $<
+
+$(PDFS): $(PDFDIR)/%.pdf: %.dia
+	dia -e $@ $<
+
+$(WAVE): $(SVGDIR)/%.svg: wavedrom/%.json
+	wavedrom-cli -i $< -s $@
+
+
