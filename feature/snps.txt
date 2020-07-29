@@ -27,6 +27,15 @@
  VIP-UFS31-SVT       
  VERDI-ULTRA  
  VerdiSimDB
+ VerdiTransactionDebugUltra
+ VCLP-Verdi-Plugin
+ VCFV-Verdi-Plugin
+ VC-STATIC-VERDI-PLUGIN
+ VC-AUTO-TESTBENCH
+ VC-AUTO-TESTBENCH-VERDI-PLUGIN
+ VC-FUNC-SAFETY-MGR-CLIENT
+ VC-FUNC-SAFETY-MGR-SERVER
+ VC-FORMAL-CC
  oemunlock
  checker
  Advanced_CDC
@@ -35,6 +44,10 @@
  adv_checker
  adv_power_rednso
  cdc_soc_abstraction
+ dftso
+ dft_dsmso
+ Test-ADV
+ soc_conn_base
  power_estso
  power_memso
  power_rednso
@@ -44,9 +57,6 @@
  char_edit_model_file
  dashboard
  datasheet
- VCLP-Verdi-Plugin
- VC-STATIC-VERDI-PLUGIN
- VerdiTransactionDebugUltra
  ICValidator2-Manager
  ICValidator-Manager
  STAR-RC2_ULTRA_MANAGER
@@ -62,14 +72,11 @@
  ICCompilerII-4-AdvGeo
  ICCompilerII-8
  ICCompilerII-8-AdvGeo
- VC-AUTO-TESTBENCH
- VC-AUTO-TESTBENCH-VERDI-PLUGINa
  GalaxyConstraint
- VT_FGP_Runtime
  VerdiCoverage
- dftso
  In-Design-Static-Rail
  PrimeTime-ADV
+ VT_FGP_Runtime
  VT_VCS_Xprop
  VT_VCS_XPropRuntime
  Formality-NewTech1

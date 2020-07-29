@@ -193,7 +193,7 @@ Plugin 'mattn/calendar-vim'
 Plugin 'a.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-surround'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'MultipleSearch'
 Plugin 'bufexplorer.zip'
 Plugin 'WeiChungWu/vim-SystemVerilog'
@@ -209,6 +209,10 @@ Plugin 'taglist.vim'
 Plugin 'matchit.zip'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'skywind3000/asynctasks.vim'
+
+Plugin 'mtdl9/vim-log-highlighting'
 "Plugin 'verilog_systemverilog_fix'
 "Plugin 'scrooloose/vim-statline'
 "Plugin 'kdurant/verilog-testbench'
@@ -805,8 +809,9 @@ let g:bufExplorerUseCurrentWindow=0  " Open in new window.
 "--------------------------------------------------------------------------- 
 " plugin - NERD_tree.vim  
 "--------------------------------------------------------------------------- 
-nmap <F8> :NERDTreeToggle<cr>
-imap <F8> <Esc>:NERDTreeToggle<cr>
+nmap <C-e> :NERDTreeToggle<cr>
+"nmap <F8> :NERDTreeToggle<cr>
+"imap <F8> <Esc>:NERDTreeToggle<cr>
 
 "--------------------------------------------------------------------------- 
 " plugin -BASH_SUPPORT.vim  
