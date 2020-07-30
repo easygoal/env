@@ -1,4 +1,4 @@
--
+#!/bin/sh -
 # run python from users path  \
 "exec" "python" "$0" "$@"
 
