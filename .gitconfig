@@ -17,6 +17,7 @@
     autocrlf = false
     quotepath = false
     fileMode = false
+    excludefile = ~/.gitignore_global
 [diff]
     tool = gvimdiff
 [difftool]
@@ -29,3 +30,6 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
+[guitool "pull"]
+    cmd = git pull

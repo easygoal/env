@@ -1,0 +1,19 @@
+# ignore vi temp files
+*.swp
+*.swo
+*.swl
+*.swm
+*.swn
+*.un~
+
+# intermediate binary files
+*.o
+*.so
+*.elf
+*.elf.asm
+*.bin
+*.hex
+
+# checksum files
+*.checksum
+
