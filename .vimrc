@@ -25,6 +25,7 @@ set ru	"显示行和列的信息
 set scrolljump=-50	"保持光标在中间
 set scrolloff=0
 set autochdir	"打开文件、切换缓冲区、删除缓冲区或者打开/关闭窗口时改变当前工作目录的值。
+set diffopt+=vertical
 
 if has ('win32') || has ('win64')
   let $CHERE_INVOKING=1
@@ -148,7 +149,7 @@ Plugin 'zhuzhzh/verilog_emacsauto.vim'
 "Plugin 'xml.vim'
 
 " Lint
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " Color
 "Plugin 'desert256.vim'
@@ -211,6 +212,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'skywind3000/asynctasks.vim'
+Plugin 'jremmen/vim-ripgrep'
 
 Plugin 'mtdl9/vim-log-highlighting'
 "Plugin 'verilog_systemverilog_fix'
