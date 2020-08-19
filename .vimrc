@@ -1222,3 +1222,9 @@ map <silent> <F2>: if &guioptions =~# 'T' <Bar>
 """ "    Mapping
 """ command -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
 
+""" asyncrun.vim
+let g:asyncrun_open = 8
+let g:asycnrun_status = ''
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
+
