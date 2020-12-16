@@ -811,9 +811,8 @@ let g:bufExplorerUseCurrentWindow=0  " Open in new window.
 "--------------------------------------------------------------------------- 
 " plugin - NERD_tree.vim  
 "--------------------------------------------------------------------------- 
-nmap <C-e> :NERDTreeToggle<cr>
-"nmap <F8> :NERDTreeToggle<cr>
-"imap <F8> <Esc>:NERDTreeToggle<cr>
+nmap <C-e>     :NERDTreeToggle<CR>
+map  <leader>e :NERDTreeFind<CR>
 
 "--------------------------------------------------------------------------- 
 " plugin -BASH_SUPPORT.vim  
@@ -1224,7 +1223,8 @@ map <silent> <F2>: if &guioptions =~# 'T' <Bar>
 
 """ asyncrun.vim
 let g:asyncrun_open = 8
-let g:asycnrun_status = ''
+let g:asyncrun_status = ''
+let g:asyncrun_auto = "make"
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
 
