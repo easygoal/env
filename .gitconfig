@@ -33,3 +33,9 @@
 
 [guitool "pull"]
     cmd = git pull
+[credential]
+	helper = store
+[pull]
+	rebase = true
+[fetch]
+	prune = true
