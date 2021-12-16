@@ -1,8 +1,8 @@
 !# include "/home/guoyou/env/X11/xdefaults.badwolf.colors"
 # include "/home/guoyou/env/X11/gruvbox-dark.xresources"
 
-XTerm*faceName: DejaVu Sans Mono for Powerline
-XTerm*faceSize: 9
-XTerm*saveLines: 8192
+UXTerm*faceName: DejaVu Sans Mono for Powerline
+UXTerm*faceSize: 9
+UXTerm*saveLines: 8192
 
 

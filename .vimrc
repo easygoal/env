@@ -710,7 +710,7 @@ if has("win32")
 	set guifont=DejaVu_Sans_Mono_for_Powerline:h10 
 else
 "   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ h10
-    set guifont=DejaVu\ Sans\ Mono
+"   set guifont=DejaVu\ Sans\ Mono
 endif
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts = 1
@@ -764,6 +764,8 @@ let b:match_words =
 			\ '\<interface\>:\<endinterface\>,' .
 			\ '\<function\>:\<endfunction\>,' .
 			\ '\<task\>:\<endtask\>,' .
+			\ '\<for\>:\<endfor\>,' .
+			\ '\<while\>:\<endwhile\>,' .
 			\ '\<case\>\|\<casex\>\|\<casez\>:\<endcase\>,' .
 			\ '\<fork\>:\<join\>\|\<join_any\>\|\<join_none\>,' .
 			\ '`ifdef\>:`else\>:`endif\>,'
