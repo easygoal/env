@@ -1,0 +1,22 @@
+# =============================================================================
+#  verible.style  -  Verible (SystemVerilog)
+# =============================================================================
+
+--inplace=true
+
+# 静默模式；1=提示，2=详细
+--verbose=0
+
+--indentation_spaces=2
+--column_limit=100
+
+# when instantiated
+--named_parameter_alignment=align
+--named_parameter_indentation=indent
+
+--named_port_alignment=align
+--named_port_indentation=indent
+
+# when declared
+--port_declarations_alignment=align
+--port_declarations_indentation=indent
